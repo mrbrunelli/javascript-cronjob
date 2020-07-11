@@ -45,8 +45,7 @@ module.exports = {
         }
     },
 
-    async listAllOcorrencias() {
-        const ultimoToken = await this.listUltimoToken()
+    async listAllOcorrencias(ultimoToken) {
         const queryParams = 'ate=2020%2F07%2F07%2008%3A00%3A00&de=2020%2F07%2F02%2000%3A00%3A00&tipoData=OCORRENCIA&codigoOcorrencia=19'
         const header = { headers: { authorization: ultimoToken } }
 
@@ -63,9 +62,7 @@ module.exports = {
         }
     },
 
-    async createNewOcorrencia() {
-        const ocorrencias = await this.listAllOcorrencias()
-
+    async createNewOcorrencia(ocorrencias) {
         let erro = false
         let errorMessage = ''
         const CONSTRAINT_ERROR = 23505
